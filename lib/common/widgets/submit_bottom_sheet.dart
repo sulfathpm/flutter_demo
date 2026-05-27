@@ -1,6 +1,7 @@
-import 'package:fashion/common/utils/kcolors.dart';
-import 'package:fashion/common/widgets/custom_button.dart';
-import 'package:fashion/const/constants.dart';
+
+import 'package:fashion_app/common/utils/kcolors.dart';
+import 'package:fashion_app/common/widgets/custom_button.dart';
+import 'package:fashion_app/const/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
