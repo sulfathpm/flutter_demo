@@ -1,6 +1,13 @@
-import 'package:flutter/material.dart';
+import 'dart:ui_web';
 
-void main() {
+import 'package:fashion_app/common/utils/environment.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+
+Future<void> main(dynamic widgetsFlutterBinding) async {
+  widgetsFlutterBinding.ensureInitialized();
+  //load crct env
+  await dotenv.load(fileName: Environment.fileName);
   runApp(const MyApp());
 }
 
@@ -62,7 +69,7 @@ class _MyHomePageState extends State<MyHomePage> {
           
           mainAxisAlignment: .center,
           children: [
-            const Text('You have pushed the button this many times:'),
+            Text(Environment.apiKey),
             Text(
               '$_counter',
               style: Theme.of(context).textTheme.headlineMedium,
