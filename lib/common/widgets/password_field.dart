@@ -1,5 +1,3 @@
-// // ignore_for_file: use_super_parameters
-
 // import 'package:fashion_app/common/utils/kcolors.dart';
 // import 'package:fashion_app/common/widgets/app_style.dart';
 // import 'package:flutter/cupertino.dart';
@@ -28,7 +26,7 @@
 //             focusNode: focusNode,
 //             keyboardType: TextInputType.visiblePassword,
 //             controller: controller,
-//             obscureText: passwordNotifier!.password,
+//             obscureText: passwordNotifier.password,
 //             validator: (value) {
 //               if (value!.isEmpty) {
 //                 return "Please enter a valid password";
@@ -86,8 +84,4 @@
 //       },
 //     );
 //   }
-// }
-
-// extension on Object? {
-//   bool? get password => null;
 // }
