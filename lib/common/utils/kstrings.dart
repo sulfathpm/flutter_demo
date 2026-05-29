@@ -1,5 +1,7 @@
 class AppText {
   static const String kCategory = 'Category';
+  static const String kGetStarted = 'Get Started';
+  static const String kAppName = 'Fashion App';
   static const String kCategories = 'Categories';
   static const String kNotifications = 'Notifications';
   static const String kAddresses = 'Addresses';
@@ -55,6 +57,10 @@ class AppText {
       "Your Wishlist awaits! Curate your dream looks and save favorites for later. It's the first step to making style aspirations a reality";
        static const String kOnboardHome =
       "Welcome to the ultimate fashion destination! Discover trends, shop your favorite styles, and elevate your wardrobe. Let's get started on your stylish journey today";
+
+  static String? get onboardingOneTitle => null;
+
+  static String? get onboardingTwoTitle => null;
 }
 
 // Your Wishlist awaits! Curate your dream looks and save favorites for later. It's the first step to making style aspirations a reality
