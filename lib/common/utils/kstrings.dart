@@ -1,5 +1,7 @@
 class AppText {
   static const String kCategory = 'Category';
+  static const String kGetStarted = "Let's Get Started";
+  static const String kAppName = 'Fashion App';
   static const String kCategories = 'Categories';
   static const String kNotifications = 'Notifications';
   static const String kAddresses = 'Addresses';
@@ -8,10 +10,10 @@ class AppText {
   static const String kErrorGetUser = 'Opps! Unable to get user data';
   static const String kVerify = 'Verification Code';
   static const String kVerifyText = 'Please enter the code we just sent to email';
+  static const String kCartErrorText = 'Please select size and color to proceed';
   static const String kSearch = 'Search';
 
-  static const String kProfilePic = 'https://d326fntlu7tb1e.cloudfront.net/uploads/0856609b-21e8-4e73-85cb-1f9a93de81f4-avatar.png';
-  
+  static const String kProfilePic = 'https://firebasestorage.googleapis.com/v0/b/authenification-b4dc9.appspot.com/o/uploads%2Favatar.png?alt=media&token=7da81de9-a163-4296-86ac-3194c490ce15';
   static const String kCollection = 'New Collection';
   static const String kPolicy = 'Privacy Policy';
   static const String kCancelation = 'Cancelation Policy';
