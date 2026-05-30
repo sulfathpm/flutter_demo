@@ -2,10 +2,6 @@ import 'package:fashion_app/src/auth/views/login_screen.dart';
 import 'package:fashion_app/src/categories/views/categories_screen.dart';
 import 'package:fashion_app/src/categories/views/category_page.dart';
 import 'package:fashion_app/src/entrypoint/views/entrypoint.dart';
-<<<<<<< HEAD
-import 'package:fashion_app/src/onboarding/views/onboarding_page.dart';
-import 'package:fashion_app/src/splashscreen/views/splashscreen_page.dart';
-=======
 import 'package:fashion_app/src/notification/views/notification_screen.dart';
 import 'package:fashion_app/src/onboarding/views/onboarding_screen.dart';
 import 'package:fashion_app/src/products/views/product_screen.dart';
@@ -14,7 +10,6 @@ import 'package:fashion_app/src/profile/views/policy_screen.dart';
 import 'package:fashion_app/src/profile/views/shipping_address_screen.dart';
 import 'package:fashion_app/src/search/views/search_screen.dart';
 import 'package:fashion_app/src/splashscreen/views/splashscreen_screen.dart';
->>>>>>> 4dd434b4efd5c81b5151152d3ad14a57285b5e97
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -37,13 +32,6 @@ final GoRouter _router = GoRouter(
       path: '/onboarding',
       builder: (context, state) => const OnBoardingScreen(),
     ),
-<<<<<<< HEAD
-    GoRoute(
-      path: '/onboarding',
-      builder: (context, state) => const OnBoardingScreen(),
-    ),
-=======
->>>>>>> 4dd434b4efd5c81b5151152d3ad14a57285b5e97
     // GoRoute(
     //   path: '/review',
     //   builder: (context, state) => const ReviewsPage(),

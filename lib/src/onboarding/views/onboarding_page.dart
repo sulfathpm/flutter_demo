@@ -1,5 +1,4 @@
 import 'package:fashion_app/common/utils/kcolors.dart';
-import 'package:fashion_app/common/utils/kstrings.dart';
 import 'package:fashion_app/src/onboarding/controllers/onboarding_notifier.dart';
 import 'package:fashion_app/src/onboarding/widgets/onboarding_page_one.dart';
 import 'package:fashion_app/src/onboarding/widgets/onboarding_page_two.dart';
@@ -49,16 +48,16 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
               // Update provider state
               context
                   .read<OnboardingNotifier>()
-                  .setSelectedPage(page);
+                  .setSelectedPage = page;
             },
 
             children: const [
 
               WelcomePage(),
 
-              OnboardingPageOne(),
+              OnboardingScreenOne(),
 
-              OnboardingPageTwo(),
+              OnboardingScreenTwo(),
             ],
           ),
 

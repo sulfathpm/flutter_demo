@@ -21,12 +21,6 @@ class AppEntryPoint extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-<<<<<<< HEAD
-    return Scaffold(
-      body: Center(
-        child: Text('App Entry Point'),
-      ),
-=======
     return Consumer<TabIndexNotifier>(
       builder: (context, tabIndexNotifier, child) {
         return Scaffold(
@@ -114,7 +108,6 @@ class AppEntryPoint extends StatelessWidget {
           ),
         );
       },
->>>>>>> 4dd434b4efd5c81b5151152d3ad14a57285b5e97
     );
   }
 }

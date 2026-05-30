@@ -1,10 +1,6 @@
 class AppText {
   static const String kCategory = 'Category';
-<<<<<<< HEAD
-  static const String kGetStarted = 'Get Started';
-=======
   static const String kGetStarted = "Let's Get Started";
->>>>>>> 4dd434b4efd5c81b5151152d3ad14a57285b5e97
   static const String kAppName = 'Fashion App';
   static const String kCategories = 'Categories';
   static const String kNotifications = 'Notifications';
