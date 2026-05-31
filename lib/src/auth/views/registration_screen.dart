@@ -5,23 +5,23 @@ import 'package:fashion_app/common/widgets/custom_button.dart';
 import 'package:fashion_app/common/widgets/email_textfield.dart';
 import 'package:fashion_app/common/widgets/password_field.dart';
 import 'package:fashion_app/src/auth/controllers/auth_notifier.dart';
-import 'package:fashion_app/src/auth/models/login_model.dart';
+import 'package:fashion_app/src/auth/models/registration_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+class RegistrationPage extends StatefulWidget {
+  const RegistrationPage({super.key});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<RegistrationPage> createState() => _RegistrationPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _RegistrationPageState extends State<RegistrationPage> {
   late final TextEditingController _usernameController =
       TextEditingController();
+  late final TextEditingController _emailController = TextEditingController();
   late final TextEditingController _passwordController =
       TextEditingController();
 
@@ -42,11 +42,7 @@ class _LoginPageState extends State<LoginPage> {
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
-        leading: AppBackButton(
-          onTap: () {
-            context.go('/home');
-          },
-        ),
+        leading: const AppBackButton(),
       ),
       body: ListView(
         children: [
@@ -75,7 +71,6 @@ class _LoginPageState extends State<LoginPage> {
               children: [
                 EmailTextField(
                   radius: 25,
-                  focusNode: _passwordNode,
                   hintText: "Username",
                   controller: _usernameController,
                   prefixIcon: const Icon(
@@ -91,6 +86,24 @@ class _LoginPageState extends State<LoginPage> {
                 SizedBox(
                   height: 25.h,
                 ),
+                EmailTextField(
+                  radius: 25,
+                  focusNode: _passwordNode,
+                  hintText: "Email",
+                  controller: _emailController,
+                  prefixIcon: const Icon(
+                    CupertinoIcons.mail,
+                    size: 20,
+                    color: Kolors.kGray,
+                  ),
+                  keyboardType: TextInputType.emailAddress,
+                  onEditingComplete: () {
+                    FocusScope.of(context).requestFocus(_passwordNode);
+                  },
+                ),
+                SizedBox(
+                  height: 25.h,
+                ),
                 PasswordField(
                   controller: _passwordController,
                   focusNode: _passwordNode,
@@ -99,7 +112,7 @@ class _LoginPageState extends State<LoginPage> {
                 SizedBox(
                   height: 20.h,
                 ),
-                context.watch<AuthNotifier>().isLoading
+                context.watch<AuthNotifier>().isRLoading
                     ? const Center(
                         child: CircularProgressIndicator(
                           backgroundColor: Kolors.kPrimary,
@@ -109,16 +122,20 @@ class _LoginPageState extends State<LoginPage> {
                       )
                     : CustomButton(
                         onTap: () {
-                          LoginModel model = LoginModel(
+                          RegistrationModel model = RegistrationModel(
                               password: _passwordController.text,
-                              username: _usernameController.text);
+                              username: _usernameController.text,
+                              email: _emailController.text);
 
-                          String data = loginModelToJson(model);
+                          String data = registrationModelToJson(model);
 
+                          print(data);
 
-                          context.read<AuthNotifier>().loginFunc(data, context);
+                          context
+                              .read<AuthNotifier>()
+                              .registrationFunc(data, context);
                         },
-                        text: "L  O  G  I  N",
+                        text: "S  I  G  N  U  P",
                         btnWidth: ScreenUtil().screenWidth,
                         btnHieght: 40,
                         radius: 20,
@@ -127,23 +144,6 @@ class _LoginPageState extends State<LoginPage> {
             ),
           )
         ],
-      ),
-      bottomNavigationBar: SizedBox(
-        height: 130.h,
-        child: Center(
-          child: Padding(
-            padding: const EdgeInsets.only(bottom: 110.0),
-            child: GestureDetector(
-              onTap: () {
-                context.push('/register');
-              },
-              child: Text(
-                'Do not have an account? Register a new one',
-                style: appStyle(12, Colors.blue, FontWeight.normal),
-              ),
-            ),
-          ),
-        ),
       ),
     );
   }
