@@ -13,6 +13,8 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:provider/provider.dart';
+import 'package:fashion_app/src/auth/controllers/auth_notifier.dart';
+import 'package:fashion_app/src/auth/controllers/password_notifier.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -29,6 +31,8 @@ void main() async {
      ChangeNotifierProvider(create: (_) => HomeTabNotifier()),
      ChangeNotifierProvider(create: (_) => ProductNotifier()),
      ChangeNotifierProvider(create: (_) => ColorSizesNotifier()),
+     ChangeNotifierProvider(create: (_) => AuthNotifier()),
+     ChangeNotifierProvider(create: (_) => PasswordNotifier()),
     ],
      child: const MyApp(),
   ));
