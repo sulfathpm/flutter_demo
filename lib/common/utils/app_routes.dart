@@ -1,13 +1,18 @@
+// import 'package:fashion_app/src/addresses/view/add_address.dart';
 import 'package:fashion_app/src/auth/views/login_screen.dart';
+import 'package:fashion_app/src/auth/views/registration_screen.dart';
 import 'package:fashion_app/src/categories/views/categories_screen.dart';
 import 'package:fashion_app/src/categories/views/category_page.dart';
+// import 'package:fashion_app/src/checkout/views/checkout_screen.dart';
 import 'package:fashion_app/src/entrypoint/views/entrypoint.dart';
 import 'package:fashion_app/src/notification/views/notification_screen.dart';
 import 'package:fashion_app/src/onboarding/views/onboarding_screen.dart';
+// import 'package:fashion_app/src/orders/views/tracking_page.dart';
 import 'package:fashion_app/src/products/views/product_screen.dart';
-import 'package:fashion_app/src/profile/views/orders_screen.dart';
+// import 'package:fashion_app/src/orders/views/orders_screen.dart';
 import 'package:fashion_app/src/profile/views/policy_screen.dart';
-import 'package:fashion_app/src/profile/views/shipping_address_screen.dart';
+// import 'package:fashion_app/src/addresses/view/shipping_address_screen.dart';
+// import 'package:fashion_app/src/reviews/views/review_screen.dart';
 import 'package:fashion_app/src/search/views/search_screen.dart';
 import 'package:fashion_app/src/splashscreen/views/splashscreen_screen.dart';
 import 'package:flutter/material.dart';
@@ -34,7 +39,7 @@ final GoRouter _router = GoRouter(
     ),
     // GoRoute(
     //   path: '/review',
-    //   builder: (context, state) => const ReviewsPage(),
+    //   builder: (context, state) => const ReviewPage(),
     // ),
     GoRoute(
       path: '/policy',
@@ -52,18 +57,18 @@ final GoRouter _router = GoRouter(
     //   path: '/help',
     //   builder: (context, state) => const HelpCenterPage(),
     // ),
-    GoRoute(
-      path: '/orders',
-      builder: (context, state) => const OrdersPage(),
-    ),
+    // GoRoute(
+    //   path: '/orders',
+    //   builder: (context, state) => const OrdersPage(),
+    // ),
     GoRoute(
       path: '/login',
       builder: (context, state) => const LoginPage(),
     ),
-    // GoRoute(
-    //   path: '/register',
-    //   builder: (context, state) => const RegistrationPage(),
-    // ),
+    GoRoute(
+      path: '/register',
+      builder: (context, state) => const RegistrationPage(),
+    ),
     GoRoute(
       path: '/categories',
       builder: (context, state) => const CategoriesPage(),
@@ -78,10 +83,10 @@ final GoRouter _router = GoRouter(
     //   builder: (context, state) => const AddAddress(),
     // ),
 
-    GoRoute(
-      path: '/addresses',
-      builder: (context, state) => const ShippingAddress(),
-    ),
+    // GoRoute(
+    //   path: '/addresses',
+    //   builder: (context, state) => const ShippingAddress(),
+    // ),
 
      GoRoute(
       path: '/notifications',
@@ -98,16 +103,7 @@ final GoRouter _router = GoRouter(
     //   builder: (context, state) => const CheckoutPage(),
     // ),
 
-    //   GoRoute(
-    //   path: '/successful',
-    //   builder: (context, state) => const SuccessfulPayment(),
-    // ),
-
-    //   GoRoute(
-    //   path: '/failed',
-    //   builder: (context, state) => const FailedPayment(),
-    // ),
-
+  
     GoRoute(
       path: '/product/:id',
       builder: (BuildContext context, GoRouterState state) {
