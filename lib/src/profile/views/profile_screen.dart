@@ -9,12 +9,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:go_router/go_router.dart';
+import 'package:fashion_app/src/auth/controllers/auth_notifier.dart';
+import 'package:provider/provider.dart';
+import 'package:fashion_app/common/services/storage.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final user = context.read<AuthNotifier>().getUserData();
     return Scaffold(
       body: ListView(
         children: [
@@ -32,7 +36,7 @@ class ProfilePage extends StatelessWidget {
                 height: 15.h,
               ),
               ReusableText(
-                  text: "kings@gmail.com",
+                  text: user?.email ?? 'No email',
                   style: appStyle(11, Kolors.kGray, FontWeight.normal)),
               SizedBox(
                 height: 7.h,
@@ -43,7 +47,7 @@ class ProfilePage extends StatelessWidget {
                       color: Kolors.kOffWhite,
                       borderRadius: BorderRadius.circular(10)),
                   child: ReusableText(
-                      text: "Andre DbesTech",
+                      text: user?.username ?? 'No username',
                       style: appStyle(14, Kolors.kDark, FontWeight.w600)))
             ],
           ),
@@ -89,6 +93,10 @@ class ProfilePage extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 14.0),
             child: CustomButton(
+              onTap: () {
+                Storage().clear();
+                context.go('/login');
+              },
               text: "Logout".toUpperCase(),
               btnColor: Kolors.kRed,
               btnHieght: 35,

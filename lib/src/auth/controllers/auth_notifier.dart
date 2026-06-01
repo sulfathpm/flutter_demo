@@ -36,7 +36,7 @@ class AuthNotifier with ChangeNotifier {
     setLoading(true);
 
     try {
-      var url = Uri.parse('${Environment.appBaseUrl}/auth/token/login');
+      var url = Uri.parse('${Environment.appBaseUrl}/auth/token/login/');
       var response = await http.post(url,
           headers: {
             'Content-Type': 'application/json',
@@ -45,11 +45,14 @@ class AuthNotifier with ChangeNotifier {
 
       if (response.statusCode == 200) {
         String accessToken = accessTokenModelFromJson(response.body).authToken;
-
         getUser(accessToken, ctx);
         setLoading(false);
+      } else {
+        // ADD THIS
+        setLoading(false);
+        showErrorPopup(ctx, AppText.kErrorLogin, null, null);
       }
-    } catch (e) {
+          } catch (e) {
       setLoading(false);
       showErrorPopup(ctx, AppText.kErrorLogin, null, null);
     }

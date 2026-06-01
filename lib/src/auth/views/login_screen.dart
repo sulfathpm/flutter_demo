@@ -44,7 +44,7 @@ class _LoginPageState extends State<LoginPage> {
         elevation: 0,
         leading: AppBackButton(
           onTap: () {
-            context.go('/onboarding');
+            context.pop();
           },
         ),
       ),
