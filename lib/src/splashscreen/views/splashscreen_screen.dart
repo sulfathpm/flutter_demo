@@ -19,16 +19,18 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   _navigator() async {
-    await Future.delayed(const Duration(milliseconds: 3000), () {
-      if (Storage().getBool('firstOpen') == null) {
-        //Go to the onboarding screen
-        GoRouter.of(context).go('/onboarding');
-      } else {
-        //Go to home page
-        GoRouter.of(context).go('/home');
-      }
-    });
-  }
+  await Future.delayed(const Duration(milliseconds: 3000), () {
+    if (Storage().getBool('firstOpen') == null) {
+      GoRouter.of(context).go('/onboarding');
+    } else if (Storage().getString('accessToken') == null) {
+      // No token = not logged in → go to login
+      GoRouter.of(context).go('/login');
+    } else {
+      // Token exists = logged in → go home
+      GoRouter.of(context).go('/home');
+    }
+  });
+}
 
   @override
   Widget build(BuildContext context) {

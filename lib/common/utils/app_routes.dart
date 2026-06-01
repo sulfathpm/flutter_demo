@@ -17,6 +17,7 @@ import 'package:fashion_app/src/search/views/search_screen.dart';
 import 'package:fashion_app/src/splashscreen/views/splashscreen_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:fashion_app/common/services/storage.dart';
 
 final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
@@ -29,11 +30,17 @@ final GoRouter _router = GoRouter(
       path: '/',
       builder: (context, state) => const SplashScreen(),
     ),
-    GoRoute(
+   GoRoute(
       path: '/home',
-      builder: (context, state) =>  AppEntryPoint(),
+      redirect: (context, state) {
+        if (Storage().getString('accessToken') == null) {
+          return '/login';
+        }
+        return null;
+      },
+      builder: (context, state) => AppEntryPoint(),
     ),
-    GoRoute(
+        GoRoute(
       path: '/onboarding',
       builder: (context, state) => const OnBoardingScreen(),
     ),
