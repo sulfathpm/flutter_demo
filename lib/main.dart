@@ -13,6 +13,8 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:provider/provider.dart';
+import 'package:fashion_app/src/auth/controllers/auth_notifier.dart';
+import 'package:fashion_app/src/auth/controllers/password_notifier.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -23,14 +25,16 @@ void main() async {
   await GetStorage.init();
   runApp(MultiProvider(
     providers: [
-     ChangeNotifierProvider(create: (_) => OnboardingNotifier()),
-     ChangeNotifierProvider(create: (_) => TabIndexNotifier()),
-     ChangeNotifierProvider(create: (_) => CategoryNotifier()),
-     ChangeNotifierProvider(create: (_) => HomeTabNotifier()),
-     ChangeNotifierProvider(create: (_) => ProductNotifier()),
-     ChangeNotifierProvider(create: (_) => ColorSizesNotifier()),
+      ChangeNotifierProvider(create: (_) => OnboardingNotifier()),
+      ChangeNotifierProvider(create: (_) => TabIndexNotifier()),
+      ChangeNotifierProvider(create: (_) => CategoryNotifier()),
+      ChangeNotifierProvider(create: (_) => HomeTabNotifier()),
+      ChangeNotifierProvider(create: (_) => ProductNotifier()),
+      ChangeNotifierProvider(create: (_) => ColorSizesNotifier()),
+      ChangeNotifierProvider(create: (_) => AuthNotifier()),
+      ChangeNotifierProvider(create: (_) => PasswordNotifier()),
     ],
-     child: const MyApp(),
+    child: const MyApp(),
   ));
 }
 
@@ -41,22 +45,23 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     Size screenSize = MediaQuery.of(context).size;
     return ScreenUtilInit(
-        designSize: screenSize,
-        minTextAdapt: true,
-        splitScreenMode: false,
-        useInheritedMediaQuery: true,
-        builder: (_, child) {
-          return MaterialApp.router(
-            debugShowCheckedModeBanner: false,
-            title: AppText.kAppName,
-            theme: ThemeData(
-              colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-              useMaterial3: true,
-            ),
-            routerConfig: router,
-          );
-        },
-        child: const SplashScreen());
+      designSize: screenSize,
+      minTextAdapt: true,
+      splitScreenMode: false,
+      useInheritedMediaQuery: true,
+      builder: (_, child) {
+        return MaterialApp.router(
+          debugShowCheckedModeBanner: false,
+          title: AppText.kAppName,
+          theme: ThemeData(
+            colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+            useMaterial3: true,
+          ),
+          routerConfig: router,
+        );
+      },
+      child: const SplashScreen(),
+    );
   }
 }
 

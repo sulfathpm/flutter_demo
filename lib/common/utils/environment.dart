@@ -15,11 +15,10 @@ class Environment {
   }
 
   static String get appBaseUrl {
-    return dotenv.env['API_BASE_URL'] ?? 'API_BASE_URL not found';
+    return dotenv.env['BASE_URL'] ?? 'BASE_URL not found';
   }
 
   static String get googleApiKey {
     return dotenv.env['MAPS_API_KEY'] ?? 'MAPS_API_KEY not found';
   }
-
 }

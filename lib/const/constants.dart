@@ -3,7 +3,7 @@ import 'package:fashion_app/const/resource.dart';
 import 'package:fashion_app/src/categories/models/categories_model.dart';
 import 'package:fashion_app/src/products/models/products_model.dart';
 import 'package:flutter/material.dart';
-
+const String baseUrl = "http://192.168.1.8:8000";
 LinearGradient kGradient = const LinearGradient(
   begin: Alignment.topLeft,
   end: Alignment.bottomRight,
